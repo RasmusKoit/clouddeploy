@@ -188,4 +188,16 @@ subnet 192.168.0.0 netmask 255.255.255.0 {
 }
 ```
 
-## Install Cloud Deploy
+## Install Clone Deploy
+
+Follow this guide
+
+[Link to Clone Deploy](http://clonedeploy.org/docs/install-on-ubuntu/)
+
+
+Now you have to change your DHCP server to allow PXE Boot
+
+### Changing DHCP Server to allow PXE Boot
+
+
+
