@@ -1,6 +1,11 @@
 # clouddeploy
 Clouddeploy installation guide
 
+## ClouDeploy workflow
+
+![Workflow picture](https://i.imgur.com/jTKAoGj.jpg "CloudDeploy workflow")
+
+Clients connect to PXE while booting and need to enter CloudDeploy service (clouddeploy/student for this example). At the same time they are given IPs from DHCP pool that is setup on the server. Next up after getting IPs and they have logged in they are promted to either upload or download their PC-s image. TFTP service runs on CloudDeploy server and communicates with Samba service to store those images. All the communications are routed with Shorewall. With this configuration not a lot of thought has been put to security since this example should only be used in a LAN with clients that you don't care about losing.
 
 ## Prerequisites
 
@@ -8,9 +13,12 @@ http://clonedeploy.org/
 
 https://wiki.debian.org/HowTo/shorewall
 
-* Debian derivative GNU/Linux server (Ubuntu 16.04 LTS was used for this tutorial)
+* Debian derivative GNU/Linux server (Ubuntu 16.04 LTS was used for this tutorial) 
+  * IP 192.168.0.1
 * Clone Deploy server
+  * IP 192.168.0.20
 * Host machines
+  * IP-s from 192.168.0.31-192.168.0.252
 
 ## Configuring gateway & DHCP & Firewall machine
 
@@ -170,6 +178,10 @@ sudo apt install isc-dhcp-server
 Now its time to configure your dhcp.
 Make sure your file is edited like this
 
+```
+sudo nano /etc/dhcp/dhcpd.conf
+```
+
 Uncomment this line
 ```
 authoritative;
@@ -189,6 +201,8 @@ subnet 192.168.0.0 netmask 255.255.255.0 {
   filename "pxeboot.0";
   next-server 192.168.0.20;
 }
+
+allow booting;
 ```
 
 ## Install Clone Deploy
