@@ -160,7 +160,7 @@ If you get "Shorewall configuration verified" at the end, you may continue
 sudo systemctl start shorewall
 ```
 
-### Setting up DHCP
+### Setting up DHCP and PXE
 
 Install dhcpd
 ```
@@ -185,6 +185,9 @@ subnet 192.168.0.0 netmask 255.255.255.0 {
   option broadcast-address 192.168.0.255
   default-lease-time 600;
   max-lease-time 7200;
+  # TFTP Part for net booting
+  filename "pxeboot.0";
+  next-server 192.168.0.20;
 }
 ```
 
@@ -194,10 +197,4 @@ Follow this guide
 
 [Link to Clone Deploy](http://clonedeploy.org/docs/install-on-ubuntu/)
 
-
-Now you have to change your DHCP server to allow PXE Boot
-
-### Changing DHCP Server to allow PXE Boot
-
-
-
+Now that all is done, you are good to go!
