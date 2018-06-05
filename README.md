@@ -25,6 +25,7 @@ https://wiki.debian.org/HowTo/shorewall
 
 ### Setup interfaces
 
+### IFUPDown config
 ```
 sudo nano /etc/network/interfaces
 ```
@@ -44,6 +45,34 @@ iface eth1 inet static
     network 192.168.0.0
 ```
 
+### Netplan config
+
+```
+sudo nano /etc/netplan/01-netcfg.yaml
+```
+
+```
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    eth0:
+      dhcp4: false
+      addresses: [192.168.7.109/24]
+      gateway4: 192.168.7.254
+      nameservers:
+        addresses: [8.8.8.8,8.8.4.4]
+    eth1:
+      dhcp4: false
+  bridges:
+    br0:
+      addresses: [192.168.0.1/24]
+      interfaces: [eth1]
+```
+```
+netplan generate
+netplan apply
+```
 Make sure eth0 and eth1 are the interfaces you need to use, by default those are correct
 
 
@@ -204,6 +233,45 @@ subnet 192.168.0.0 netmask 255.255.255.0 {
 
 allow booting;
 ```
+
+# Add a virtual machine
+
+```
+sudo apt install qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils
+```
+
+Next up we want to change default settings to disable libvirt DHCP since we have our own dhcp server. We are also selecting our own bridge for default network.
+
+```
+virsh net-edit default
+```
+
+Edit this file and change the text to this one
+
+You can use its current UUID instead.
+
+```
+<network>
+  <name>default</name>
+  <uuid>4f20d39a-32c7-4c63-866a-0600d82453aa</uuid> 
+  <forward mode='bridge'/>
+  <bridge name='br0'/>
+</network>
+```
+
+Save the settings and reload default config
+
+```
+virsh net-destory default
+virsh net-start default
+```
+
+To check your current config matches the one you just wrote, you can write
+```
+virsh net-dumpxml default
+```
+
+Now make sure you have a machine with virt-manager installed and make a connection to your current router to add a machine for Clone Deploy server
 
 ## Install Clone Deploy
 
