@@ -23,6 +23,8 @@ Clouddeploy installation guide
 </details>
 
 </details>
+
+
 ## CloudDeploy workflow
 
 ![Workflow picture](https://i.imgur.com/jTKAoGj.jpg "CloudDeploy workflow")
