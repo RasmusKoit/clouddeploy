@@ -3,9 +3,25 @@ Clouddeploy installation guide
 
 ##### Pictures of Clonedeploy in action
 <details><summary>Pictures</summary>
+
+<details><summary>Boot</summary>
+ 
 ![Clonedeploy boot](https://imgur.com/6umED6G.jpg "ClouneDeploy boot")
+
+</details>
+
+<details><summary>Login</summary>
+ 
 ![Clonedeploy login](https://imgur.com/CKVPQl6.jpg  "ClouneDeploy login")
+
+</details>
+
+<details><summary>Options</summary>
+ 
 ![Clonedeploy options](https://imgur.com/XP67P0x.jpg  "ClouneDeploy options")
+
+</details>
+
 </details>
 ## CloudDeploy workflow
 
