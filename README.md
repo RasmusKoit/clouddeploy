@@ -1,4 +1,4 @@
-# clouddeploy
+# CloudDeploy
 Clouddeploy installation guide
 
 ##### Pictures of Clonedeploy in action
