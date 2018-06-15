@@ -169,7 +169,7 @@ You only have to add one line here.
 
 ```
 # Source destination
-eth0 eth1
+eth0 br0
 ```
 
 We are routing connections from eth0 to eth1
@@ -270,6 +270,12 @@ virsh net-start default
 To check your current config matches the one you just wrote, you can write
 ```
 virsh net-dumpxml default
+```
+
+Fix your iptables...
+
+```
+sudo iptables -t nat -A POSTROUTING -s 192.168.7.0/24 -j MASQUERADE
 ```
 
 Now make sure you have a machine with virt-manager installed and make a connection to your current router to add a machine for Clone Deploy server
