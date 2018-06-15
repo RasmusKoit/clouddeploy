@@ -67,7 +67,6 @@ network:
   bridges:
     br0:
       addresses: [192.168.0.1/24]
-      interfaces: [eth1]
 ```
 ```
 netplan generate
