@@ -51,6 +51,8 @@ iface eth1 inet static
 sudo nano /etc/netplan/01-netcfg.yaml
 ```
 
+*Make sure you dont have 2 DHCP-s on one interface!*
+
 ```
 network:
   version: 2
