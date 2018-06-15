@@ -6,7 +6,7 @@ Clouddeploy installation guide
 
 <details><summary>Boot</summary>
  
-![Clonedeploy boot](https://imgur.com/6umED6G.jpg "ClouneDeploy boot")
+![Clonedeploy boot](https://imgur.com/XP67P0x.jpg "ClouneDeploy boot")
 
 </details>
 
@@ -18,7 +18,7 @@ Clouddeploy installation guide
 
 <details><summary>Options</summary>
  
-![Clonedeploy options](https://imgur.com/XP67P0x.jpg  "ClouneDeploy options")
+![Clonedeploy options](https://imgur.com/6umED6G.jpg  "ClouneDeploy options")
 
 </details>
 
