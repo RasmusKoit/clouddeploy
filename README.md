@@ -299,7 +299,12 @@ virsh net-dumpxml default
 Fix your iptables...
 
 ```
-sudo iptables -t nat -A POSTROUTING -s 192.168.7.0/24 -j MASQUERADE
+sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+sudo iptables-save > /etc/iptables/rules.v4
+```
+and if you need to restore then you type
+```
+sudo iptables-restore < /etc/iptables/rules.v4
 ```
 
 Now make sure you have a machine with virt-manager installed and make a connection to your current router to add a machine for Clone Deploy server
