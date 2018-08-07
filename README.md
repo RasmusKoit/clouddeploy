@@ -304,6 +304,14 @@ sudo iptables -t nat -A POSTROUTING -s 192.168.7.0/24 -j MASQUERADE
 
 Now make sure you have a machine with virt-manager installed and make a connection to your current router to add a machine for Clone Deploy server
 
+```
+ip  addr flush vnet0
+ip addr add 192.168.0.1/24 dev br0
+ip link set br0 up
+brctl addif br0 eth2
+systemctl restart isc-dhcp-server
+```
+
 ## Install Clone Deploy
 
 Follow this guide
