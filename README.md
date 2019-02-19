@@ -248,7 +248,7 @@ subnet 192.168.0.0 netmask 255.255.255.0 {
   option domain-name-servers 1.1.1.1, 1.0.0.1;
   option subnet-mask 255.255.255.0;
   option routers 192.168.0.1;
-  option broadcast-address 192.168.0.255
+  option broadcast-address 192.168.0.255;
   default-lease-time 600;
   max-lease-time 7200;
   # TFTP Part for net booting
